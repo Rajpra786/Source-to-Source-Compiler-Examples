@@ -46,3 +46,6 @@ parse_tree = parser.parse(program)
 # print(parse_tree.pretty())
 for i in parse_tree.children:
     run(i)
+
+
+
