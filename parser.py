@@ -8,22 +8,20 @@ turtle_grammar = """
     instruction: "p" STRING                  -> print
                | "repeat" NUMBER block       -> repeat
 
-    block : instruction+    
-    
+    block : instruction+
+
     STRING : "'" (WORD " ")+ "'"
            | "'" " " (WORD " ")+ "'"
            | "'" (WORD " ")+ WORD "'"
-    
+
     %import common.WORD
     %import common.INT -> NUMBER
     %import common.WS
     %ignore WS
 """
 
+parser = Lark(turtle_grammar)
 
-program = """
-    repeat 10 p 'Hello World '  
-"""
 
 
 def run(t):
@@ -39,13 +37,18 @@ def run(t):
     else:
         raise SyntaxError('Unknown instruction: %s' %t.data)
 
-parser = Lark(turtle_grammar)
-
-parse_tree = parser.parse(program)
-
-# print(parse_tree.pretty())
-for i in parse_tree.children:
-    run(i)
 
 
+#Execute the script in python using run function
+def Run_Program():
+    #read input from Input.test file
+    file = open("Input.test", "r")
+    program = file.read()
 
+    parse_tree = parser.parse(program)
+    #uncomment to see parse tree
+    # print(parse_tree.pretty())
+    for i in parse_tree.children:
+        run(i)
+
+Run_Program()
