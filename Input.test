@@ -1,4 +1,0 @@
-repeat 2
-    p 'Hello World '
-    repeat 3
-        p 'Hello world two'
