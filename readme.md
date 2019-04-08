@@ -1,4 +1,6 @@
-#Hello World Application 
+# Hello World Application 
+
+---
 
 Here are two simple examples are given to parse the following script using ** Lark-parser **
 
@@ -9,5 +11,5 @@ Here are two simple examples are given to parse the following script using ** La
 
 ---
 ## Contributors
-     - Rajendra Prajapat <raj.int.pra@gmail.com>
-
+     * Rajendra Prajapat <raj.int.pra@gmail.com>
+---
