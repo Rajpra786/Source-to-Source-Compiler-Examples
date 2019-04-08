@@ -1,9 +1,13 @@
-#repeat 10 p ‘hello world
-import turtle
+########################################################################################################
+#                   Aim of this program : This program parse a simple script
+#                                            repeat 10 p ‘hello world'
+#                                       using python module Lark and generate python code from it
+#                   Author : Rajendra Prajapat
+#########################################################################################################
 
 from lark import Lark,Transformer,v_args
 
-turtle_grammar = """
+Test_grammar = """
     start: instruction+
     instruction: "p" STRING                  -> printf
                | "repeat" NUMBER block       -> repeat
@@ -37,7 +41,7 @@ class Code_generator(Transformer):
 
 #Execute the script in python using run function
 
-parser = Lark(turtle_grammar,parser = "lalr",transformer = Code_generator())
+parser = Lark(Test_grammar,parser = "lalr",transformer = Code_generator())
 
 def Run_Program():
     #read input from Input.test file

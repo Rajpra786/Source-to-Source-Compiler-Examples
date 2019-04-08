@@ -1,9 +1,12 @@
-#repeat 10 p ‘hello world
-import turtle
-
+########################################################################################################
+#                   Aim of this program : This program parse a simple script
+#                                            repeat 10 p ‘hello world'
+#                                       using python module Lark
+#                   Author : Rajendra Prajapat
+#########################################################################################################
 from lark import Lark
 
-turtle_grammar = """
+Test_grammar = """
     start: instruction+
     instruction: "p" STRING                  -> print
                | "repeat" NUMBER block       -> repeat
@@ -20,7 +23,7 @@ turtle_grammar = """
     %ignore WS
 """
 
-parser = Lark(turtle_grammar)
+parser = Lark(Test_grammar)
 
 
 
