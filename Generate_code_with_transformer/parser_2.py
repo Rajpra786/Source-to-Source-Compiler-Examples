@@ -25,18 +25,32 @@ Test_grammar = """
 """
 
 
-
 class Code_generator(Transformer):
     def printf(self,args):
         return "print("+ args[0] +")"
     def repeat(self,args):
         number,block = args[0],args[1]
-        return "for i in range(" + number +"):\n" + block
+        list = []
+        str = "for i in range(" + number +"):"
+        list.append(str)
+        for i in block:
+            list.append(i)
+        return list
+
     def block(self,args):
-        str = "     "
+        li =[]
+        inden = "    "
         for i in args:
-            str = str +"     "+ i + "\n"
-        return str
+            if isinstance(i,list):
+                for inst in i:
+                    str = ""
+                    str = str + inden + inst
+                    li.append(str)
+            else:
+                str = ""
+                str = str + inden + i
+                li.append(str)
+        return li
 
 
 #Execute the script in python using run function
@@ -50,9 +64,15 @@ def Run_Program():
     file.close()
     parse_tree = parser.parse(program)
 
-    x=parse_tree.children
+    # print(parse_tree.pretty())
+    code = ""
+    x = parse_tree.children
+    for i in x[0]:
+        code = code + i + "\n"
+
+    # print(code)
     file = open("output.py", "w")
-    file.write(x[0])
+    file.write(code)
     file.close()
 
 Run_Program()
