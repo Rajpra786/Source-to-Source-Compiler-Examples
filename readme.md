@@ -1,8 +1,13 @@
 #Hello World Application 
 
-This is simple hello world application which parse the following script 
+Here are two simple examples are given to parse the following script using ** Lark-parser **
 
-repeat 10 p ‘hello world'
+> repeat 10 p ‘hello world'
 
-using LARK using python prints hello world 10 times
+	-example1
+	-Generate_code_with_transformer
+
+---
+## Contributors
+     - Rajendra Prajapat <raj.int.pra@gmail.com>
 
