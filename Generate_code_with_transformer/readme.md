@@ -6,13 +6,13 @@ This is a simple python 3 code generator from a hello world script using ** Lark
 
 ## Test Cases
 
-####Input.test
+#### Input.test
 ```
   repeat 2 p 'Hello World ' repeat 3 p 'Hello world two' repeat 2 p 'Hello world Tree'
 
 ```
 
-####output.py
+#### output.py
 ```
   for i in range(2):
       print('Hello World ')
@@ -37,5 +37,5 @@ This is a simple python 3 code generator from a hello world script using ** Lark
 ---
 
 ## Contributors
-     - Rajendra Prajapat <raj.int.pra@gmail.com>
+- Rajendra Prajapat <raj.int.pra@gmail.com>
 ---
